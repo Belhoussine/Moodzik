@@ -16,12 +16,12 @@
 ## 2. Mood detection:
 - [ ] Get face image from CNN_01
 - [ ] Build CNN_02:
-    - [ ] Design network architecture:
-        - [ ] Convolution layers.
-        - [ ] Fully connected Neural Network.
-        - [ ] Define activation functions.
+    - [x] Design network architecture:
+        - [x] Convolution layers.
+        - [x] Fully connected Neural Network.
+        - [x] Define activation functions.
         - [ ] Define output labels.
-        - [ ] Define optimizer / loss function.
+        - [x] Define optimizer / loss function.
 
 - [ ] Train CNN_02:
     - [ ] Dataset:
