@@ -1,11 +1,11 @@
 from flask import Flask, render_template, url_for, request, redirect, Response
-from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-from synthasizesong import play_music, stopMusic
+from PlaySong import play_music, stopMusic
+from Scripts.FaceNet import facecapture
 
 app = Flask(__name__)
 
-musicfile = './Music/output.mid'
+musicfile = './Static/MidiFiles/output.mid'
 
 
 @app.route('/')
@@ -18,6 +18,11 @@ def index():
 def music():
     play_music(musicfile)
     return render_template('playingpage.html')
+
+@app.route('/camera')
+def camera():
+    return Response(facecapture(), mimetype='multipart/x-mixed-replace; boundary=frame')
+    # return render_template('camerapage.html')
 
 
 if __name__ == "__main__":
