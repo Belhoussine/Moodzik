@@ -15,23 +15,7 @@ from keras.regularizers import l2
 from keras.utils import np_utils
 
 
-mood_map = {
-    0: 'angry', 
-    1: 'disgust', 
-    2: 'fear', 
-    3: 'happy', 
-    4: 'sad', 
-    5: 'surprise', 
-    6: 'neutral', 
-}
 
-def mood_to_num(mood):
-  for key, value in mood_map.items(): 
-         if mood == value: 
-             return key 
-
-def num_to_mood(num):
-  return mood_map[num]
 
 # reading csv file
 def read_csv(filename):
