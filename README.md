@@ -1,7 +1,7 @@
 # Moodzik
 
 ## MindMap:
-![mindmap](./mindmap/mindmap.png)
+![mindmap](./MindMap/mindmap.png)
 
 ## 1. Face detection:
 - [x] Get input from camera
