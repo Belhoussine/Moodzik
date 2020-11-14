@@ -1,8 +1,9 @@
 import sys
 import pandas as pd
 import numpy as np
-from PIL import Image
 import csv
+import tensorflow as tf
+from PIL import Image
 
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation, Flatten
@@ -12,6 +13,25 @@ from keras.optimizers import Adam
 from keras.regularizers import l2
 from keras.utils import np_utils
 
+
+mood_map = {
+    0: 'surprise', 
+    1: 'anger', 
+    2: 'disgust', 
+    3: 'sadness', 
+    4: 'happiness', 
+    5: 'neutral', 
+    6: 'fear', 
+    7: 'contempt'
+}
+
+def mood_to_num(mood):
+  for key, value in mood_map.items(): 
+         if mood == value: 
+             return key 
+
+def num_to_mood(num):
+  return mood_map[num]
 
 # reading csv file
 def read_csv(filename):
@@ -24,7 +44,7 @@ def read_csv(filename):
 
 # Defining paths
 csv_path = "./Train_Dataset/labels.csv"
-image_path = "./Train_Dataset/images/"
+image_path = "./Train_Dataset/Images/"
 
 
 # Defining arrays
@@ -33,11 +53,16 @@ train_labels = []
 test_images = []
 test_labels = []
 
+# Model parameters
+n_labels = 8
+batch_size = 64
+epochs = 30
+width, height = (48, 48)
+
 # Data pre-processing
 
 # Reading csv
 df= read_csv(csv_path) 
-print(df[0])
 
 # Reading images and labels
 for index, row in enumerate(df):
@@ -46,23 +71,22 @@ for index, row in enumerate(df):
     image = Image.open(image_path + imagename)
     image = np.asarray(image.resize((48,48)))
     train_images.append(image)
-    train_labels.append(row[2])
+    train_labels.append(mood_to_num(row[2]))
   except:
     continue
 
-print(train_images[0])
 
-train_images = np.array(train_images)
+
+train_images = np.array(train_images, 'float32') / 255.0
 train_labels = np.array(train_labels)
 
+train_images = train_images.reshape(train_images.shape[0], 48, 48, 1)
+train_labels = np_utils.to_categorical(train_labels, num_classes = n_labels)  
+
+# print(train_images.shape)
+# print(train_labels.shape)
+
 # Image processing
-
-# Model parameters
-n_labels = 5
-batch_size = 64
-epochs = 30
-width, height = (48, 48)
-
 # CNN Model Architecture
 model = Sequential()
 
@@ -95,18 +119,18 @@ model.add(Dense(n_labels, activation='softmax'))
 model.compile(loss=categorical_crossentropy,  
               optimizer=Adam(),  
               metrics=['accuracy'])  
-  
-#Training the model  
+
+# Training the model  
 model.fit(train_images, train_labels,  
           batch_size=batch_size,  
           epochs=epochs,  
-          verbose=1,  
-          validation_data=(test_images, test_labels),  
-          shuffle=True)  
-  
+          verbose=1,
+          shuffle = True) 
+          # validation_data=(test_images, test_labels),  
+          # shuffle=True)  
   
 #Saving the  model to  use it later on  
-EmotioNet_json = model.to_json()  
-with open("EmotioNet.json", "w") as json_file:  
-    json_file.write(EmotioNet_json)  
-model.save_weights("EmotioNet_weights.h5")  
+# EmotioNet_json = model.to_json()  
+# with open("EmotioNet.json", "w") as json_file:  
+#     json_file.write(EmotioNet_json)  
+# model.save_weights("EmotioNet_weights.h5")  
