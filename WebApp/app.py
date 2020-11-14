@@ -23,7 +23,6 @@ def music():
 def camera():
     return Response(facecapture(), mimetype='multipart/x-mixed-replace; boundary=frame')
     # return render_template('camerapage.html')
-
-
+    
 if __name__ == "__main__":
     app.run(debug=True)

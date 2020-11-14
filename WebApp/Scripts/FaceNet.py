@@ -86,3 +86,5 @@ def facecapture():
     # When everything done, release the capture
     capture.release()
     cv2.destroyAllWindows()
+
+facecapture()
