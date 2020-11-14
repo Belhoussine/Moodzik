@@ -4,17 +4,16 @@
 ![mindmap](./mindmap/mindmap.png)
 
 ## 1. Face detection:
-- [ ] Get input from camera
-- [ ] Build / Train CNN_01:
-    - [ ] Find face dataset
-- [ ] Capture face:
-    - [ ] Capture frame
-    - [ ] Crop frame to identify face only
-- [ ] Process captured face
-- [ ] Feed to CNN_02
+- [x] Get input from camera
+- [x] Use Haar_Cascade model
+- [x] Capture face:
+    - [x] Capture frame
+    - [x] Crop frame to identify face only
+- [x] Process captured face
+- [x] Feed to CNN_02
 
 ## 2. Mood detection:
-- [ ] Get face image from CNN_01
+- [x] Get face image from CNN_01
 - [x] Build CNN_02:
     - [x] Design network architecture:
         - [x] Convolution layers.
@@ -32,7 +31,8 @@
     - [x] Train model
     - [x] Save model as JSON
 
-- [ ] Predict mood from image
+- [x] Predict mood from image
+- [x] Display mood
 
 ## 3. Music Generation:
 - [ ] Get mood from CNN_02
