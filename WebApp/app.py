@@ -5,29 +5,31 @@ from Scripts.FaceNet import facecapture
 
 app = Flask(__name__)
 
-musicfile = './Static/MidiFiles/output.mid'
+musicfile = './Static/MidiFiles/moodzik.mid'
 
-started = False
+# moodzik = generateSong(mood)
 
 @app.route('/')
 def index():
     stopMusic()
-    global started 
-    started = False
     return render_template('index.html')
+
+@app.route('/generating')
+def generating():
+    generateSong(mood)
+    return render_template('musicpage.html')
 
 
 @app.route('/music')
 def music():
-    global started
+    mood = get_mood()
     play_music(musicfile)
-    started = True
     return render_template('musicpage.html')
 
 @app.route('/music/pause')
 def musicpause():
     pauseMusic()
-    return render_template('musicpage.html')
+    return render_template('pausedmusic.html')
 
 @app.route('/music/play')
 def musicplay():
