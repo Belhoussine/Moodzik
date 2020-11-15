@@ -4,6 +4,7 @@ import numpy as np
 from keras.models import model_from_json
 from keras.preprocessing import image
 
+history = {}
 
 mood_map = {
     0: 'angry',
@@ -15,6 +16,14 @@ mood_map = {
     6: 'neutral',
 }
 
+def get_mood():
+    mood = ''
+    max_freq = -1
+    for _mood, freq in history.items():
+        if freq > max_freq:
+            max_freq = freq
+            mood = _mood
+    return mood
 
 def mood_to_num(mood):
     for key, value in mood_map.items():
@@ -39,6 +48,9 @@ def crop_face(frame, x, y, w, h):
 
 
 def facecapture():
+    global history 
+    for key, value in mood_map.items():
+        history[value] = 0
     # Defining path
     models_path = "../Models/"
 
@@ -70,7 +82,8 @@ def facecapture():
             # Cropping detected face and feeding it to EmotioNet
             face = crop_face(gray_frame, x, y, w, h)
             prediction = num_to_mood(np.argmax(EmotioNet.predict(face)))
-
+            if(len(history) < 1000):
+                history[prediction]+= 1
             cv2.putText(frame, prediction, (int(x), int(y)),
                         cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
