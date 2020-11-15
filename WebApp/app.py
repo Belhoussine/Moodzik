@@ -15,24 +15,25 @@ def index():
     return render_template('index.html')
 
 @app.route('/generating')
+def loading():
+    return render_template('loadingpage.html')
+
+
+@app.route('/loading')
 def generating():
     global generated
     mood = get_mood()
-    print(mood.upper())
     if not generated:
+        print(mood.upper())
         generated = True
         generateSong(mood)
-        return redirect("/music", code=302)
-    else:
-        play_music(moodzik)
-        return render_template('musicpage.html')
-
-
+    return redirect("/music", code=302)
+    
 @app.route('/music')
 def music():
-    # mood = get_mood()
-    # generateSong(mood)
+    global generated
     play_music(moodzik)
+    generated = False
     return render_template('musicpage.html')
 
 @app.route('/music/pause')
