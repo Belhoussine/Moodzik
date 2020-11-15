@@ -58,11 +58,11 @@
     - [x] Generate MIDI file based on mood
 
 ## 4. Play Music:
-- [ ] Desing GUI
+- [x] Desing GUI
 - [x] Use Pygame on generated midi file
 
 ## 5. Publish web-app:
 - [x] Use flask to serve app
-- [ ] Host in a remote server
-- [ ] Purchase domain name
-- [ ] Deploy
+- [x] Host in a remote server
+- [x] Purchase domain name
+- [x] Deploy
