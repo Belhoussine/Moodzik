@@ -1,6 +1,30 @@
 body, html {
+    background-size: 2;
     margin: 0;
     font-family: sans-serif;
+    background: url('https://i.pinimg.com/originals/4a/20/a0/4a20a0a1ef23ee073e99d6df19914411.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+/* three music signs url https://i.pinimg.com/originals/8f/16/99/8f1699fcf0df8d6b3179ff5faf59c920.png */
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    font-size: 92px;
+    padding: 10px 5px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+}
+
+.shadow {
+    color: #321300;
+    /* background-color: #e7e5e4; */
+    letter-spacing: .15em;
+    text-shadow: 0.5px -0.5px 0 #ae5b00, -1px 2px 1px #c16500, -2px 4px 1px #d26e00, -3px 6px 1px #e07500, -4px 8px 1px #ef7e03, -5px 10px 1px #f08512, -6px 12px 1px #f88f1e, -7px 14px 1px #f69934
 }
 
 .content {
@@ -9,7 +33,8 @@ body, html {
 }
 
 .button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;
+    /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -17,7 +42,7 @@ body, html {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-  }
+}
 
 #content {
     width: 70%;

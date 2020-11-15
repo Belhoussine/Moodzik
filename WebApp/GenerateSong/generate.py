@@ -194,3 +194,4 @@ def generateSong(m):
     """Call main function."""
     tf.app.run(main)
     FLAGS.primer_path = f'./GenerateSong/primers/{m}.mid'
+    return True
