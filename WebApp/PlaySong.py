@@ -19,6 +19,11 @@ def stopMusic():
     pygame.mixer.music.fadeout(1000)
     pygame.mixer.music.stop()
 
+def pauseMusic():
+    pygame.mixer.music.pause()
+def unpauseMusic():
+    pygame.mixer.music.unpause()
+
 # pick a midi music file you have ...
 midi_file='./data/clean_midi/808 State/Pacific 202.mid'
 freq=44100    # audio CD quality
