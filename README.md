@@ -4,7 +4,7 @@
 ```
     git clone https://github.com/Belhoussine/Moodzik.git  
     cd Moodzik/  
-    sudo apt-get install build-essential libasound2-dev ffmpeg libjack-dev portaudio19-dev
+    sudo apt-get install build-essential libasound2-dev ffmpeg libjack-dev portaudio19-dev timidity freepats
     pip3 install -r requirements.txt  
 ```
 
