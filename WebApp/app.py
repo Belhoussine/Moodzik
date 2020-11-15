@@ -7,7 +7,9 @@ from GenerateSong.generate import generateSong
 
 app = Flask(__name__)
 
-musicfile = './GenerateSong/GeneratedSong/moodzik.mid'
+# musicfile = './GenerateSong/GeneratedSong/moodzik.mid'
+
+musicfile = './static/MidiFiles/POC.mid'
 
 mood = 'neutral'
 
@@ -21,7 +23,8 @@ def generating():
     global mood
     mood = get_mood()
     print(mood.upper())
-    generateSong(mood.lower()).apply
+    # generateSong(mood.lower()).apply
+    play_music(musicfile)
     return render_template('musicpage.html')
 
 
