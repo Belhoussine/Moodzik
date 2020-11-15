@@ -2,14 +2,12 @@ from flask import Flask, render_template, url_for, request, redirect, Response
 from datetime import datetime
 from PlaySong import play_music, stopMusic, pauseMusic,unpauseMusic
 from NeuralNets.FaceNet import facecapture, get_mood
-# import GenerateSong.utils 
 from GenerateSong.generate import generateSong
 
 app = Flask(__name__)
 
-musicfile = './GenerateSong/GeneratedSong/moodzik.mid'
-
-mood = 'neutral'
+moodzik = './GenerateSong/GeneratedSongs/moodzik.mid'
+generated = False
 
 @app.route('/')
 def index():
@@ -18,16 +16,23 @@ def index():
 
 @app.route('/generating')
 def generating():
-    global mood
+    global generated
     mood = get_mood()
     print(mood.upper())
-    generateSong(mood.lower()).apply
-    return render_template('musicpage.html')
+    if not generated:
+        generated = True
+        generateSong(mood)
+        return redirect("/music", code=302)
+    else:
+        play_music(moodzik)
+        return render_template('musicpage.html')
 
 
 @app.route('/music')
 def music():
-    play_music(musicfile)
+    # mood = get_mood()
+    # generateSong(mood)
+    play_music(moodzik)
     return render_template('musicpage.html')
 
 @app.route('/music/pause')
