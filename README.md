@@ -10,7 +10,8 @@
 
 ### Run Moodzik locally:
 ```
-    python ./WebApp/app.py  
+    cd WebApp
+    python app.py
     firefox http://127.0.0.1:5000/
 ```
 
@@ -49,19 +50,19 @@
 - [x] Display mood
 
 ## 3. Music Generation:
-- [ ] Get mood from CNN_02
-- [ ] Train Music generator Neural Network:
-    - [ ] Find music dataset
-    - [ ] Feed music in ABC format
-- [ ] Generate music based on mood:
-    - [ ] Generate MIDI file based on mood
+- [x] Get mood from CNN_02
+- [x] Train Music generator Neural Network:
+    - [x] Find music dataset
+    - [x] Feed music in ABC format
+- [x] Generate music based on mood:
+    - [x] Generate MIDI file based on mood
 
 ## 4. Play Music:
-- [ ] Desing GUI
+- [x] Desing GUI
 - [x] Use Pygame on generated midi file
 
 ## 5. Publish web-app:
-- [ ] Use flask to serve app
-- [ ] Host in a remote server
-- [ ] Purchase domain name
-- [ ] Deploy
+- [x] Use flask to serve app
+- [x] Host in a remote server
+- [x] Purchase domain name
+- [x] Deploy

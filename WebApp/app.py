@@ -32,8 +32,8 @@ def generating():
 @app.route('/music')
 def music():
     global generated
-    play_music(moodzik)
     generated = False
+    play_music(moodzik)
     return render_template('musicpage.html')
 
 @app.route('/music/pause')

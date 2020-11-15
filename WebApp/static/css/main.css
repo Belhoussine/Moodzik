@@ -1,8 +1,7 @@
 body, html {
-    background-size: 2;
+    background-color: #dfd8c8;
     margin: 0;
     font-family: sans-serif;
-    background: url('https://i.pinimg.com/originals/4a/20/a0/4a20a0a1ef23ee073e99d6df19914411.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -14,30 +13,37 @@ body, html {
 h1 {
     font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
     font-size: 92px;
-    padding: 10px 5px;
-    text-align: center;
     text-transform: uppercase;
     text-rendering: optimizeLegibility;
 }
 
 .shadow {
-    color: #321300;
+    color: #41444b;
     /* background-color: #e7e5e4; */
     letter-spacing: .15em;
     text-shadow: 0.5px -0.5px 0 #ae5b00, -1px 2px 1px #c16500, -2px 4px 1px #d26e00, -3px 6px 1px #e07500, -4px 8px 1px #ef7e03, -5px 10px 1px #f08512, -6px 12px 1px #f88f1e, -7px 14px 1px #f69934
 }
 
 .content {
-    margin: 0 auto;
+    margin: 0 0;
     width: 400px;
 }
 
+.btn-lg {
+    padding: 10px 50px;
+    font-size: 20px;
+    border-radius: 10px;
+    width:100%;    
+    background-color: #41444b;
+    color: #dfd8c8;
+}
+
 .button {
-    background-color: #4CAF50;
+    background-color: #41444b;
     /* Green */
     border: none;
-    color: white;
-    padding: 15px 32px;
+    color: #dfd8c8;
+    /* padding: 15px 32px; */
     text-align: center;
     text-decoration: none;
     display: inline-block;
