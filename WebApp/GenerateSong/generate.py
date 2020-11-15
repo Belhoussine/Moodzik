@@ -1,12 +1,13 @@
 # HOW TO USE:
 # gsutil -q -m cp -r 'gs://magentadata/models/music_transformer/*' <destination folder>
 # python main.py -model_path=path/to/model/checkpoints/unconditional_model_16.ckpt -output_dir=/tmp -decode_length=1024 -primer_path=path/to/primer_mid -num_samples=1
+# python main.py -model_path=./checkpoints/unconditional_model_16.ckpt -output_dir=./GeneratedSongs -decode_length=1024 -primer_path=./primers/sad.mid -num_samples=1
+
 
 
 """Unconditioned Transformer."""
 import os
 import time
-
 from magenta.music.protobuf import music_pb2
 import tensorflow.compat.v1 as tf   # pylint: disable=import-error
 tf.disable_v2_behavior()
@@ -14,7 +15,7 @@ tf.disable_v2_behavior()
 from tensor2tensor.utils import decoding
 from tensor2tensor.utils import trainer_lib
 
-import utils
+import GenerateSong.utils as utils
 
 flags = tf.flags
 FLAGS = flags.FLAGS
@@ -33,7 +34,7 @@ flags.DEFINE_string(
     'Set of hparams to use.'
 )
 flags.DEFINE_string(
-    'model_path', None,
+    'model_path', './GenerateSong/checkpoints/unconditional_model_16.ckpt',
     'Pre-trained model path.'
 )
 flags.DEFINE_string(
@@ -42,7 +43,7 @@ flags.DEFINE_string(
     'model will generate sample without priming.'
 )
 flags.DEFINE_string(
-    'output_dir', None,
+    'output_dir', './GenerateSong/GeneratedSongs',
     'Midi output directory.'
 )
 flags.DEFINE_string(
@@ -62,7 +63,7 @@ flags.DEFINE_integer(
     'Beam size for inference.'
 )
 flags.DEFINE_integer(
-    'decode_length', 1024,
+    'decode_length', 2048,
     'Length of decode result.'
 )
 flags.DEFINE_float(
@@ -89,7 +90,7 @@ def generate(estimator, unconditional_encoders, decode_length, targets, primer_n
     date_and_time = time.strftime('%Y-%m-%d_%H%M%S')
     base_name = os.path.join(
         FLAGS.output_dir,
-        '%s_%s-*-of-%03d.mid' % ('unconditioned', date_and_time, FLAGS.num_samples)
+        'moodzik.mid'
     )
     utils.LOGGER.info('Generating %d samples with format %s' % (FLAGS.num_samples, base_name))
     for i in range(FLAGS.num_samples):
@@ -189,10 +190,7 @@ def main(unused_argv):
     run()
 
 
-def console_entry_point():
+def generateSong(m):
     """Call main function."""
     tf.app.run(main)
-
-
-if __name__ == '__main__':
-    console_entry_point()
+    FLAGS.primer_path = f'./GenerateSong/primers/{m}.mid'
