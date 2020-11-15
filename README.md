@@ -1,5 +1,19 @@
 # Moodzik
 
+### Clone & Install dependencies:
+```
+    git clone https://github.com/Belhoussine/Moodzik.git  
+    cd Moodzik/  
+    sudo apt-get install build-essential libasound2-dev ffmpeg libjack-dev portaudio19-dev
+    pip3 install -r requirements.txt  
+```
+
+### Run Moodzik locally:
+```
+    python ./WebApp/app.py  
+    firefox http://127.0.0.1:5000/
+```
+
 ## MindMap:
 ![mindmap](./MindMap/mindmap.png)
 
