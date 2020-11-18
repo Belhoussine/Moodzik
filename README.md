@@ -14,17 +14,17 @@ The technologies / libraries used in this project are:
     
 ### Clone & Install dependencies:  
 Moodzik builds fine on `Python 3.8.5` 
-`
+```
     git clone https://github.com/Belhoussine/Moodzik.git  
     ./Moodzik/setup
-`
+```
 
 ### Run Moodzik locally:
-`
+```
     cd ./Moodzik/WebApp/
     python3 app.py
     firefox http://127.0.0.1:5000/
-`
+```
 
 ## Face & Emotion Detection:
 ![Demo](./Demo/Face_Emotion_Detection.jpg)
