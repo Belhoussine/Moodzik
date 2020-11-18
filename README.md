@@ -11,8 +11,9 @@ The technologies / libraries used in this project are:
 - NumPy
 - Flask
 
-### Clone & Install dependencies:
-    Moodzik builds fine on `Python 3.8.5` 
+    
+### Clone & Install dependencies:  
+Moodzik builds fine on `Python 3.8.5` 
 ```
     git clone https://github.com/Belhoussine/Moodzik.git  
     ./Moodzik/setup
