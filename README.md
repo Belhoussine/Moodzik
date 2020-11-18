@@ -1,24 +1,37 @@
 # Moodzik
 
+### Overview:
+MoodZik is a web app that utilizes Machine Learning to analyze a user's face through the webcam, identify their current emotions, and generate music from scratch based on how they are feeling.  
+The technologies / libraries used in this project are:
+- Tensorflow & Keras
+- Convolutional Neural Networks (Face / Emotion detection)
+- Recurrent Neural Networks (Music generation)
+- Pandas
+- OpenCV
+- NumPy
+- Flask
+
 ### Clone & Install dependencies:
+    Moodzik builds fine on `Python 3.8.5` 
 ```
     git clone https://github.com/Belhoussine/Moodzik.git  
-    cd Moodzik/  
-    sudo apt-get install build-essential libasound2-dev ffmpeg libjack-dev portaudio19-dev timidity freepats
-    pip3 install -r requirements.txt  
+    ./Moodzik/setup
 ```
 
 ### Run Moodzik locally:
 ```
-    cd WebApp
-    python app.py
+    cd ./Moodzik/WebApp/
+    python3 app.py
     firefox http://127.0.0.1:5000/
 ```
 
-## MindMap:
-![mindmap](./MindMap/mindmap.png)
+## Face & Emotion Detection:
+![Demo](./Demo/Face_Emotion_Detection.jpg)
 
-## 1. Face detection:
+## MindMap:
+![MindMap](./Demo/mindmap.png)
+
+## 1. Face detection CNN:
 - [x] Get input from camera
 - [x] Use Haar_Cascade model
 - [x] Capture face:
@@ -27,7 +40,7 @@
 - [x] Process captured face
 - [x] Feed to CNN_02
 
-## 2. Mood detection:
+## 2. Mood detection CNN:
 - [x] Get face image from CNN_01
 - [x] Build CNN_02:
     - [x] Design network architecture:
@@ -49,20 +62,21 @@
 - [x] Predict mood from image
 - [x] Display mood
 
-## 3. Music Generation:
+## 3. Music Generation RNN:
 - [x] Get mood from CNN_02
 - [x] Train Music generator Neural Network:
-    - [x] Find music dataset
-    - [x] Feed music in ABC format
+    - [x] Use Magenta
+    - [x] Use primers to generate music from
 - [x] Generate music based on mood:
+    - [x] Provide mood primers
     - [x] Generate MIDI file based on mood
 
 ## 4. Play Music:
-- [x] Desing GUI
-- [x] Use Pygame on generated midi file
+- [x] Use Pygame.mixer on generated midi file
 
 ## 5. Publish web-app:
+- [x] Desing GUI
 - [x] Use flask to serve app
-- [x] Host in a remote server
-- [x] Purchase domain name
-- [x] Deploy
+- [ ] Host in a remote server
+- [ ] Purchase domain name
+- [ ] Deploy

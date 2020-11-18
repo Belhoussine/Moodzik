@@ -4,7 +4,6 @@ import numpy as np
 import csv
 import tensorflow as tf
 from PIL import Image
-import matplotlib.pyplot as plt
 
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation, Flatten
@@ -13,9 +12,6 @@ from keras.losses import categorical_crossentropy
 from keras.optimizers import Adam
 from keras.regularizers import l2
 from keras.utils import np_utils
-
-
-
 
 # reading csv file
 def read_csv(filename):

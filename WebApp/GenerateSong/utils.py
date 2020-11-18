@@ -1,7 +1,3 @@
-# Copyright 2019 Google LLC.
-# Licensed under the Apache License, Version 2.0 (the "License");
-# Modification copyright 2020 Bui Quoc Bao
-# Change notebook script into package
 
 """Transform utilities."""
 import numpy as np

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo apt-get install build-essential libasound2-dev ffmpeg libjack-dev portaudio19-dev timidity freepats
+pip3 install -r ./Moodzik/requirements.txt  
+gsutil -q -m cp -r 'gs://magentadata/models/music_transformer/*' ./Moodzik/WebApp/GenerateSong/checkpoints/
