@@ -13,7 +13,7 @@ The technologies / libraries used in this project are:
 
     
 ### Clone & Install dependencies:  
-Moodzik builds fine on `Python 3.8.5` 
+Moodzik builds fine on `Ubuntu 20.04.1` using `Python 3.8.5` 
 ```
     git clone https://github.com/Belhoussine/Moodzik.git  
     ./Moodzik/setup
